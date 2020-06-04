@@ -1,0 +1,59 @@
+﻿<Window x:Class="Course.Warehouse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Course"
+        mc:Ignorable="d"
+        Title="Довідник лікаря: склад" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="Ліки, наявні на складі:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="22"
+               Width="250" />
+        <Button Name="AddMedicineButton" Click="AddMedicineButton_Click" Content="Додати нові ліки" Grid.Row="0"
+                Grid.Column="2" Width="250" VerticalAlignment="Center"
+                FontSize="22" />
+        <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" Grid.Row="0" Grid.Column="1"
+                 HorizontalAlignment="Center" VerticalContentAlignment="Center"
+                 TextWrapping="Wrap" VerticalAlignment="Center" Width="250" FontSize="22" />
+        <TextBlock HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="10,10,10,0" FontSize="22"
+                   IsHitTestVisible="False" Text="Пошук" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <DataGrid Loaded="WarehouseData_Loaded" x:Name="WarehouseData" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0"
+                  FontSize="16" ColumnHeaderHeight="30" AlternationCount="2" RowBackground="#FFF3F3F3"
+                  AlternatingRowBackground="#FFBDB0B0" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="10,10,10,10">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Назва" Width="Auto" MinWidth="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Background="Transparent" Text="{Binding Name}" IsReadOnly="True"
+                                     MouseDoubleClick="TextBox_MouseDoubleClick" BorderThickness="0" Cursor="Hand"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <local:DataGridNumericColumn Header="Кількість" Binding="{Binding Amount}" Width="Auto"/>
+                <DataGridTextColumn Header="Захворювання" Binding="{Binding Illness}" IsReadOnly="True" Width="Auto" MinWidth="200"/>
+                <DataGridTextColumn Header="Діюча речовина" Binding="{Binding Substance}" IsReadOnly="True " Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

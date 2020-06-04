@@ -1,0 +1,33 @@
+﻿<Window x:Class="Course.Doctors"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Довідник лікаря: лікарі" Height="450" Width="580" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DataGrid Name="Doctors1" Grid.Row="1" Margin="10, 10, 10, 10" FontSize="16" ItemsSource="{Binding}"
+                  AutoGenerateColumns="false">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ім'я" Width="300" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Спеціальність" Width="200" Binding="{Binding Speciality}" IsReadOnly="True" />
+                <DataGridTemplateColumn MinWidth="30" MaxWidth="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="-" HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                   MouseDoubleClick="Label_MouseLeftButtonDown" Width="30" Height="30" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="0" Content="Новий лікар" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"
+                VerticalAlignment="Center" Width="120" FontSize="16" Click="Button_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AddDoctor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddMedicine.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Diseases.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Doctors.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditMedicine.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Recipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Warehouse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AddDoctor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddMedicine.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Diseases.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Doctors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditMedicine.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="mainwindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Recipe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Warehouse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
